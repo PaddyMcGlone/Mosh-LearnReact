@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0
+    count: 0,
+    people: ["Patrick", "Aaron", "Maeve"]
   };
 
   render() {
@@ -10,6 +11,11 @@ class Counter extends Component {
       <React.Fragment>
         <span className={this.CalculateClasses()}>{this.formatCount()}</span>
         <button className="btn btn-secondary btn-sm">Increment</button>
+        <ul>
+          {this.state.people.map(p => (
+            <li key={p}>{p}</li>
+          ))}
+        </ul>
       </React.Fragment>
     );
   }
