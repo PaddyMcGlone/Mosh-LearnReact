@@ -10,6 +10,8 @@ class Counter extends Component {
   render() {
     return (
       <React.Fragment>
+        {this.state.people.length === 0 && "Please add some people"}
+
         <span className={this.CalculateClasses()}>{this.formatCount()}</span>
         <button className="btn btn-secondary btn-sm">Increment</button>
         <ul>{this.RenderTags()}</ul>
