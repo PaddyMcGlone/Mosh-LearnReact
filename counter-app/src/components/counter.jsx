@@ -7,16 +7,31 @@ class Counter extends Component {
     people: []
   };
 
+  constructor() {
+    super();
+    this.HandleOnClick = this.HandleOnClick.bind(this);
+  }
+
   render() {
     return (
       <React.Fragment>
         {this.state.people.length === 0 && "Please add some people"}
 
         <span className={this.CalculateClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={this.HandleOnClick}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
         <ul>{this.RenderTags()}</ul>
       </React.Fragment>
     );
+  }
+
+  HandleOnClick() {
+    this.setState({ count: this.state.count + 1 });
+    console.log("The button has been clicked, increment the counter.");
   }
 
   RenderTags() {
